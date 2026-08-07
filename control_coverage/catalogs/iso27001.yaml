@@ -2,11 +2,18 @@
 #
 # This is exactly the list a Statement of Applicability enumerates. A control's
 # full code is "ISO:<id>", matching the codes audit-report rulesets cite.
+#
+# COPYRIGHT: ISO/IEC 27001:2022 is copyright ISO/IEC. Only the Annex A control
+# identifiers (e.g. A.5.17) and their short titles are reproduced here as labels;
+# the normative control text and implementation guidance are not. For the
+# authoritative wording, obtain the standard from ISO. These control-to-signal
+# mappings are the maintainers' interpretation and are not reviewed or endorsed
+# by ISO/IEC. See ../../MAPPING.md.
 framework: ISO
 name: ISO/IEC 27001:2022 Annex A
 version: "2022"
 coverage: complete
-source: ISO/IEC 27001:2022 Annex A
+source: ISO/IEC 27001:2022 Annex A (identifiers and short titles only)
 controls:
   # A.5 — Organizational controls
   - {id: A.5.1, family: Organizational, title: "Policies for information security."}

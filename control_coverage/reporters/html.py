@@ -9,6 +9,7 @@ from __future__ import annotations
 from html import escape
 from typing import TYPE_CHECKING
 
+from .. import __version__
 from ..coverage import (
     ASSERTED,
     FAILING,
@@ -214,7 +215,11 @@ def _blind_spots(report: CoverageReport) -> str:
 
 def render(report: CoverageReport) -> str:
     title = report.subject or "Evidence corpus"
-    frameworks = ", ".join(fc.catalog.framework for fc in report.frameworks)
+    frameworks = ", ".join(
+        f"{fc.catalog.framework} {fc.catalog.version} "
+        f"(sha256:{fc.catalog.sha256[:12]})"
+        for fc in report.frameworks
+    )
     body = [
         "<!doctype html><html lang='en'><head><meta charset='utf-8'>",
         "<meta name='viewport' content='width=device-width, initial-scale=1'>",
@@ -223,6 +228,7 @@ def render(report: CoverageReport) -> str:
         f"<h1>Control Coverage — {escape(title)}</h1>",
         (
             f'<p class="meta">Generated {escape(report.generated_at)} · '
+            f"Tool control-coverage {escape(__version__)} · "
             f"{report.source_count} evidence source(s) · frameworks: {escape(frameworks)}</p>"
         ),
         (

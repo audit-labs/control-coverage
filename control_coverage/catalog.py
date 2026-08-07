@@ -15,6 +15,7 @@ Control codes are written ``FRAMEWORK:ID`` (for example ``SOC2:CC6.1``,
 
 from __future__ import annotations
 
+import hashlib
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -60,6 +61,7 @@ class Catalog:
     coverage: str  # "complete" or "partial"
     source: str
     controls: list[Control]
+    sha256: str = ""  # digest of the catalog file, so coverage ties to a mapping
 
     @property
     def complete(self) -> bool:
@@ -86,7 +88,8 @@ def _resolve(name: str) -> Path:
 def load(name: str) -> Catalog:
     """Load a bundled catalog by framework name, short code, or alias."""
     path = _resolve(name)
-    raw = yaml.safe_load(path.read_text(encoding="utf-8"))
+    text = path.read_text(encoding="utf-8")
+    raw = yaml.safe_load(text)
     framework = raw["framework"]
     controls = [
         Control(
@@ -104,6 +107,7 @@ def load(name: str) -> Catalog:
         coverage=raw.get("coverage", "partial"),
         source=raw.get("source", ""),
         controls=controls,
+        sha256=hashlib.sha256(text.encode("utf-8")).hexdigest(),
     )
 
 

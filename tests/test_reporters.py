@@ -34,6 +34,15 @@ def test_json_is_valid_and_structured():
     assert "unaddressed" in states
 
 
+def test_json_stamps_tool_and_catalog_provenance():
+    from control_coverage import __version__
+
+    doc = _json.loads(reporters.render(_report(), "json"))
+    assert doc["tool"] == {"name": "control-coverage", "version": __version__}
+    soc2 = doc["frameworks"][0]
+    assert len(soc2["sha256"]) == 64  # full SHA-256 hex digest of the catalog file
+
+
 def test_html_is_self_contained():
     html = reporters.render(_report(), "html")
     assert html.startswith("<!doctype html>")

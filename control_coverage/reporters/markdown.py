@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from .. import __version__
 from ..coverage import (
     ASSERTED,
     FAILING,
@@ -108,8 +109,12 @@ def render(report: CoverageReport) -> str:
     out.append(f"# Control Coverage — {title}")
     out.append("")
     out.append(f"- **Generated:** {report.generated_at}")
+    out.append(f"- **Tool:** control-coverage {__version__}")
     out.append(f"- **Corpus:** {report.source_count} evidence source(s)")
-    frameworks = ", ".join(fc.catalog.framework for fc in report.frameworks)
+    frameworks = ", ".join(
+        f"{fc.catalog.framework} {fc.catalog.version} (`sha256:{fc.catalog.sha256[:12]}`)"
+        for fc in report.frameworks
+    )
     out.append(f"- **Frameworks:** {frameworks}")
     out.append("")
     out.append(

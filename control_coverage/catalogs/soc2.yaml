@@ -1,85 +1,93 @@
 # SOC 2 — Trust Services Criteria (AICPA, 2017 with 2022 revised points of focus).
 #
 # The full Common Criteria (the "Security" category every SOC 2 report covers)
-# plus the Availability category. A control's full code is "SOC2:<id>", matching
-# the codes audit-report rulesets cite.
+# plus the Availability, Confidentiality, Processing Integrity, and Privacy
+# categories. A control's full code is "SOC2:<id>", matching the codes
+# audit-report rulesets cite.
+#
+# COPYRIGHT: The Trust Services Criteria are copyright AICPA. The `title` fields
+# below are our own short-form paraphrases used as labels — not the normative
+# criteria text. Only the criterion identifiers (e.g. CC6.1) are reproduced. For
+# the authoritative wording and points of focus, consult the AICPA TSC. These
+# control-to-signal mappings are the maintainers' interpretation and are not
+# reviewed or endorsed by the AICPA. See ../../MAPPING.md.
 framework: SOC2
 name: SOC 2 (Trust Services Criteria)
 version: "2017 (rev. 2022)"
 coverage: complete
-source: AICPA Trust Services Criteria
+source: AICPA Trust Services Criteria (identifiers only; titles paraphrased)
 controls:
   # CC1 — Control Environment
-  - {id: CC1.1, family: Control Environment, title: "The entity demonstrates a commitment to integrity and ethical values."}
-  - {id: CC1.2, family: Control Environment, title: "The board of directors demonstrates independence and exercises oversight of internal control."}
-  - {id: CC1.3, family: Control Environment, title: "Management establishes structures, reporting lines, and appropriate authorities and responsibilities."}
-  - {id: CC1.4, family: Control Environment, title: "The entity demonstrates a commitment to attract, develop, and retain competent individuals."}
-  - {id: CC1.5, family: Control Environment, title: "The entity holds individuals accountable for their internal control responsibilities."}
+  - {id: CC1.1, family: Control Environment, title: "Commitment to integrity and ethical values"}
+  - {id: CC1.2, family: Control Environment, title: "Board independence and internal-control oversight"}
+  - {id: CC1.3, family: Control Environment, title: "Structures, reporting lines, and authorities established"}
+  - {id: CC1.4, family: Control Environment, title: "Commitment to attracting and retaining competent people"}
+  - {id: CC1.5, family: Control Environment, title: "Accountability for internal-control responsibilities"}
   # CC2 — Communication and Information
-  - {id: CC2.1, family: Communication and Information, title: "The entity obtains or generates relevant, quality information to support internal control."}
-  - {id: CC2.2, family: Communication and Information, title: "The entity internally communicates information, including objectives and responsibilities for internal control."}
-  - {id: CC2.3, family: Communication and Information, title: "The entity communicates with external parties about matters affecting internal control."}
+  - {id: CC2.1, family: Communication and Information, title: "Relevant, quality information supporting internal control"}
+  - {id: CC2.2, family: Communication and Information, title: "Internal communication of control objectives and duties"}
+  - {id: CC2.3, family: Communication and Information, title: "External communication on internal-control matters"}
   # CC3 — Risk Assessment
-  - {id: CC3.1, family: Risk Assessment, title: "The entity specifies objectives with sufficient clarity to enable identification of risks."}
-  - {id: CC3.2, family: Risk Assessment, title: "The entity identifies and analyzes risks to the achievement of its objectives."}
-  - {id: CC3.3, family: Risk Assessment, title: "The entity considers the potential for fraud in assessing risks."}
-  - {id: CC3.4, family: Risk Assessment, title: "The entity identifies and assesses changes that could significantly affect internal control."}
+  - {id: CC3.1, family: Risk Assessment, title: "Objectives specified clearly enough to identify risk"}
+  - {id: CC3.2, family: Risk Assessment, title: "Identification and analysis of risks to objectives"}
+  - {id: CC3.3, family: Risk Assessment, title: "Fraud potential considered in risk assessment"}
+  - {id: CC3.4, family: Risk Assessment, title: "Assessment of changes affecting internal control"}
   # CC4 — Monitoring Activities
-  - {id: CC4.1, family: Monitoring Activities, title: "The entity selects, develops, and performs ongoing and separate evaluations of internal control."}
-  - {id: CC4.2, family: Monitoring Activities, title: "The entity evaluates and communicates internal control deficiencies in a timely manner."}
+  - {id: CC4.1, family: Monitoring Activities, title: "Ongoing and separate evaluations of internal control"}
+  - {id: CC4.2, family: Monitoring Activities, title: "Timely evaluation and reporting of control deficiencies"}
   # CC5 — Control Activities
-  - {id: CC5.1, family: Control Activities, title: "The entity selects and develops control activities that mitigate risks to acceptable levels."}
-  - {id: CC5.2, family: Control Activities, title: "The entity selects and develops general control activities over technology."}
-  - {id: CC5.3, family: Control Activities, title: "The entity deploys control activities through policies and procedures."}
+  - {id: CC5.1, family: Control Activities, title: "Control activities selected to mitigate risk"}
+  - {id: CC5.2, family: Control Activities, title: "General technology controls developed"}
+  - {id: CC5.3, family: Control Activities, title: "Control activities deployed via policies and procedures"}
   # CC6 — Logical and Physical Access Controls
-  - {id: CC6.1, family: Logical and Physical Access Controls, title: "The entity implements logical access security software, infrastructure, and architectures over protected assets."}
-  - {id: CC6.2, family: Logical and Physical Access Controls, title: "The entity registers and authorizes new users before granting access, and removes access when appropriate."}
-  - {id: CC6.3, family: Logical and Physical Access Controls, title: "The entity authorizes, modifies, or removes access based on roles and least privilege."}
-  - {id: CC6.4, family: Logical and Physical Access Controls, title: "The entity restricts physical access to facilities and protected information assets."}
-  - {id: CC6.5, family: Logical and Physical Access Controls, title: "The entity discontinues logical and physical protections over assets only after the ability to read data has been removed."}
-  - {id: CC6.6, family: Logical and Physical Access Controls, title: "The entity implements logical access security measures against threats from outside its system boundaries."}
-  - {id: CC6.7, family: Logical and Physical Access Controls, title: "The entity restricts the transmission, movement, and removal of information to authorized users and processes."}
-  - {id: CC6.8, family: Logical and Physical Access Controls, title: "The entity implements controls to prevent or detect and act upon unauthorized or malicious software."}
+  - {id: CC6.1, family: Logical and Physical Access Controls, title: "Logical access security over protected assets"}
+  - {id: CC6.2, family: Logical and Physical Access Controls, title: "User registration, authorization, and deprovisioning"}
+  - {id: CC6.3, family: Logical and Physical Access Controls, title: "Role- and least-privilege-based access management"}
+  - {id: CC6.4, family: Logical and Physical Access Controls, title: "Physical access restricted to facilities and assets"}
+  - {id: CC6.5, family: Logical and Physical Access Controls, title: "Protections removed only after data made unreadable"}
+  - {id: CC6.6, family: Logical and Physical Access Controls, title: "Perimeter defenses against external threats"}
+  - {id: CC6.7, family: Logical and Physical Access Controls, title: "Restricted transmission and removal of information"}
+  - {id: CC6.8, family: Logical and Physical Access Controls, title: "Prevention and detection of unauthorized software"}
   # CC7 — System Operations
-  - {id: CC7.1, family: System Operations, title: "The entity uses detection and monitoring procedures to identify configuration changes and new vulnerabilities."}
-  - {id: CC7.2, family: System Operations, title: "The entity monitors system components for anomalies indicative of malicious acts or errors."}
-  - {id: CC7.3, family: System Operations, title: "The entity evaluates security events to determine whether they could or did result in a failure to meet objectives."}
-  - {id: CC7.4, family: System Operations, title: "The entity responds to identified security incidents through a defined program."}
-  - {id: CC7.5, family: System Operations, title: "The entity identifies, develops, and implements activities to recover from security incidents."}
+  - {id: CC7.1, family: System Operations, title: "Detection of configuration changes and vulnerabilities"}
+  - {id: CC7.2, family: System Operations, title: "Monitoring for anomalies indicating malicious acts"}
+  - {id: CC7.3, family: System Operations, title: "Evaluation of security events against objectives"}
+  - {id: CC7.4, family: System Operations, title: "Defined security-incident response program"}
+  - {id: CC7.5, family: System Operations, title: "Recovery from security incidents"}
   # CC8 — Change Management
-  - {id: CC8.1, family: Change Management, title: "The entity authorizes, designs, develops, tests, approves, and implements changes to infrastructure, data, and software."}
+  - {id: CC8.1, family: Change Management, title: "Change management across infrastructure, data, and software"}
   # CC9 — Risk Mitigation
-  - {id: CC9.1, family: Risk Mitigation, title: "The entity identifies, selects, and develops risk mitigation activities for disruptions."}
-  - {id: CC9.2, family: Risk Mitigation, title: "The entity assesses and manages risks associated with vendors and business partners."}
+  - {id: CC9.1, family: Risk Mitigation, title: "Risk-mitigation activities for business disruptions"}
+  - {id: CC9.2, family: Risk Mitigation, title: "Vendor and business-partner risk management"}
   # Availability category
-  - {id: A1.1, family: Availability, title: "The entity maintains, monitors, and evaluates current processing capacity to meet demand."}
-  - {id: A1.2, family: Availability, title: "The entity authorizes, designs, and implements environmental protections, backup, and recovery infrastructure."}
-  - {id: A1.3, family: Availability, title: "The entity tests recovery plan procedures supporting system recovery."}
+  - {id: A1.1, family: Availability, title: "Processing-capacity monitoring against demand"}
+  - {id: A1.2, family: Availability, title: "Environmental protections, backup, and recovery infrastructure"}
+  - {id: A1.3, family: Availability, title: "Recovery-plan testing"}
   # Confidentiality category
-  - {id: C1.1, family: Confidentiality, title: "The entity identifies and maintains confidential information to meet its objectives related to confidentiality."}
-  - {id: C1.2, family: Confidentiality, title: "The entity disposes of confidential information to meet its objectives related to confidentiality."}
+  - {id: C1.1, family: Confidentiality, title: "Identification and safeguarding of confidential information"}
+  - {id: C1.2, family: Confidentiality, title: "Disposal of confidential information"}
   # Processing Integrity category
-  - {id: PI1.1, family: Processing Integrity, title: "The entity obtains or generates, uses, and communicates relevant, quality information about processing objectives, including product and service specifications."}
-  - {id: PI1.2, family: Processing Integrity, title: "The entity implements policies and procedures over system inputs, including controls over completeness and accuracy, to meet its objectives."}
-  - {id: PI1.3, family: Processing Integrity, title: "The entity implements policies and procedures over system processing to result in products, services, and reporting that meet its objectives."}
-  - {id: PI1.4, family: Processing Integrity, title: "The entity implements policies and procedures to make available or deliver output completely, accurately, and in a timely manner to meet its objectives."}
-  - {id: PI1.5, family: Processing Integrity, title: "The entity implements policies and procedures to store inputs, items in processing, and outputs completely, accurately, and in a timely manner to meet its objectives."}
+  - {id: PI1.1, family: Processing Integrity, title: "Quality information about processing objectives and specs"}
+  - {id: PI1.2, family: Processing Integrity, title: "Input controls for completeness and accuracy"}
+  - {id: PI1.3, family: Processing Integrity, title: "Processing controls producing objective-meeting output"}
+  - {id: PI1.4, family: Processing Integrity, title: "Output delivered completely, accurately, and on time"}
+  - {id: PI1.5, family: Processing Integrity, title: "Storage of inputs, work in process, and outputs"}
   # Privacy category
-  - {id: P1.1, family: Privacy, title: "The entity provides notice to data subjects about its privacy practices to meet its objectives related to privacy."}
-  - {id: P2.1, family: Privacy, title: "The entity communicates choices about the collection, use, retention, disclosure, and disposal of personal information, and obtains consent, to meet its privacy objectives."}
-  - {id: P3.1, family: Privacy, title: "Personal information is collected consistent with the entity's objectives related to privacy."}
-  - {id: P3.2, family: Privacy, title: "For information requiring explicit consent, the entity communicates the need for and obtains consent prior to collection of personal information."}
-  - {id: P4.1, family: Privacy, title: "The entity limits the use of personal information to the purposes identified in its objectives related to privacy."}
-  - {id: P4.2, family: Privacy, title: "The entity retains personal information consistent with its objectives related to privacy."}
-  - {id: P4.3, family: Privacy, title: "The entity securely disposes of personal information to meet its objectives related to privacy."}
-  - {id: P5.1, family: Privacy, title: "The entity grants data subjects the ability to access their stored personal information for review and, upon request, provides copies, to meet its privacy objectives."}
-  - {id: P5.2, family: Privacy, title: "The entity corrects, amends, or appends personal information based on data subject input and communicates it to third parties, to meet its privacy objectives."}
-  - {id: P6.1, family: Privacy, title: "The entity discloses personal information to third parties only with the explicit consent of data subjects and consistent with its privacy objectives."}
-  - {id: P6.2, family: Privacy, title: "The entity creates and retains a complete, accurate, and timely record of authorized disclosures of personal information."}
-  - {id: P6.3, family: Privacy, title: "The entity creates and retains a complete, accurate, and timely record of detected or reported unauthorized disclosures of personal information."}
-  - {id: P6.4, family: Privacy, title: "The entity obtains privacy commitments from vendors and other third parties who have access to personal information, to meet its privacy objectives."}
-  - {id: P6.5, family: Privacy, title: "The entity obtains commitments from vendors and third parties to notify it of actual or suspected unauthorized disclosures of personal information."}
-  - {id: P6.6, family: Privacy, title: "The entity provides notification of breaches and incidents of unauthorized disclosure of personal information to affected data subjects, regulators, and others."}
-  - {id: P6.7, family: Privacy, title: "The entity provides data subjects with an accounting of the personal information held and disclosures made, upon request."}
-  - {id: P7.1, family: Privacy, title: "The entity collects and maintains accurate, up-to-date, complete, and relevant personal information to meet its privacy objectives."}
-  - {id: P8.1, family: Privacy, title: "The entity implements a process for receiving, addressing, resolving, and communicating the resolution of privacy inquiries, complaints, and disputes."}
+  - {id: P1.1, family: Privacy, title: "Notice of privacy practices to data subjects"}
+  - {id: P2.1, family: Privacy, title: "Choice and consent over personal-information handling"}
+  - {id: P3.1, family: Privacy, title: "Collection consistent with privacy objectives"}
+  - {id: P3.2, family: Privacy, title: "Explicit consent obtained before collection where required"}
+  - {id: P4.1, family: Privacy, title: "Use of personal information limited to stated purposes"}
+  - {id: P4.2, family: Privacy, title: "Retention of personal information per objectives"}
+  - {id: P4.3, family: Privacy, title: "Secure disposal of personal information"}
+  - {id: P5.1, family: Privacy, title: "Data-subject access to their personal information"}
+  - {id: P5.2, family: Privacy, title: "Correction and amendment of personal information"}
+  - {id: P6.1, family: Privacy, title: "Third-party disclosure only with consent"}
+  - {id: P6.2, family: Privacy, title: "Record of authorized disclosures"}
+  - {id: P6.3, family: Privacy, title: "Record of unauthorized disclosures"}
+  - {id: P6.4, family: Privacy, title: "Privacy commitments obtained from vendors and third parties"}
+  - {id: P6.5, family: Privacy, title: "Vendor commitments to notify of unauthorized disclosure"}
+  - {id: P6.6, family: Privacy, title: "Breach notification to affected parties and regulators"}
+  - {id: P6.7, family: Privacy, title: "Accounting of personal information and disclosures on request"}
+  - {id: P7.1, family: Privacy, title: "Accuracy and currency of personal information"}
+  - {id: P8.1, family: Privacy, title: "Handling of privacy inquiries, complaints, and disputes"}

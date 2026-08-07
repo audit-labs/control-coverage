@@ -6,6 +6,10 @@
 # management (PM) family is org-wide and not baseline-allocated; the privacy (PT)
 # family is selected via the separate privacy baseline. A control's full code is
 # "NIST:<id>".
+#
+# COPYRIGHT: NIST SP 800-53 is a U.S. Government work in the public domain. The
+# control-to-signal mappings, however, are the maintainers' interpretation and
+# are not reviewed or endorsed by NIST. See ../../MAPPING.md.
 framework: NIST
 name: NIST SP 800-53 Rev. 5 (Moderate baseline)
 version: "Rev. 5"

@@ -9,6 +9,8 @@ from __future__ import annotations
 import json as _json
 from typing import TYPE_CHECKING
 
+from .. import __version__
+
 if TYPE_CHECKING:
     from ..coverage import CoverageReport
 
@@ -18,11 +20,13 @@ def to_dict(report: CoverageReport) -> dict:
         "subject": report.subject,
         "generated_at": report.generated_at,
         "source_count": report.source_count,
+        "tool": {"name": "control-coverage", "version": __version__},
         "frameworks": [
             {
                 "framework": fc.catalog.framework,
                 "name": fc.catalog.name,
                 "version": fc.catalog.version,
+                "sha256": fc.catalog.sha256,
                 "catalog_coverage": fc.catalog.coverage,
                 "in_scope": fc.in_scope,
                 "addressed": fc.addressed,
