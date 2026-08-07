@@ -1,0 +1,210 @@
+# NIST SP 800-53 Rev. 5 — Moderate baseline (base controls).
+#
+# The base controls selected in the SP 800-53B moderate impact baseline, across
+# all 18 baseline-applicable families. Control enhancements (e.g. AC-2(1)) are not
+# enumerated — coverage is measured at the base-control level. The program
+# management (PM) family is org-wide and not baseline-allocated; the privacy (PT)
+# family is selected via the separate privacy baseline. A control's full code is
+# "NIST:<id>".
+framework: NIST
+name: NIST SP 800-53 Rev. 5 (Moderate baseline)
+version: "Rev. 5"
+baseline: Moderate
+coverage: complete
+source: NIST SP 800-53B Moderate baseline (base controls)
+controls:
+  # AC — Access Control
+  - {id: AC-1, family: "Access Control", title: "Policy and Procedures"}
+  - {id: AC-2, family: "Access Control", title: "Account Management"}
+  - {id: AC-3, family: "Access Control", title: "Access Enforcement"}
+  - {id: AC-4, family: "Access Control", title: "Information Flow Enforcement"}
+  - {id: AC-5, family: "Access Control", title: "Separation of Duties"}
+  - {id: AC-6, family: "Access Control", title: "Least Privilege"}
+  - {id: AC-7, family: "Access Control", title: "Unsuccessful Logon Attempts"}
+  - {id: AC-8, family: "Access Control", title: "System Use Notification"}
+  - {id: AC-11, family: "Access Control", title: "Device Lock"}
+  - {id: AC-12, family: "Access Control", title: "Session Termination"}
+  - {id: AC-14, family: "Access Control", title: "Permitted Actions Without Identification or Authentication"}
+  - {id: AC-17, family: "Access Control", title: "Remote Access"}
+  - {id: AC-18, family: "Access Control", title: "Wireless Access"}
+  - {id: AC-19, family: "Access Control", title: "Access Control for Mobile Devices"}
+  - {id: AC-20, family: "Access Control", title: "Use of External Systems"}
+  - {id: AC-21, family: "Access Control", title: "Information Sharing"}
+  - {id: AC-22, family: "Access Control", title: "Publicly Accessible Content"}
+  # AT — Awareness and Training
+  - {id: AT-1, family: "Awareness and Training", title: "Policy and Procedures"}
+  - {id: AT-2, family: "Awareness and Training", title: "Literacy Training and Awareness"}
+  - {id: AT-3, family: "Awareness and Training", title: "Role-Based Training"}
+  - {id: AT-4, family: "Awareness and Training", title: "Training Records"}
+  # AU — Audit and Accountability
+  - {id: AU-1, family: "Audit and Accountability", title: "Policy and Procedures"}
+  - {id: AU-2, family: "Audit and Accountability", title: "Event Logging"}
+  - {id: AU-3, family: "Audit and Accountability", title: "Content of Audit Records"}
+  - {id: AU-4, family: "Audit and Accountability", title: "Audit Log Storage Capacity"}
+  - {id: AU-5, family: "Audit and Accountability", title: "Response to Audit Logging Process Failures"}
+  - {id: AU-6, family: "Audit and Accountability", title: "Audit Record Review, Analysis, and Reporting"}
+  - {id: AU-7, family: "Audit and Accountability", title: "Audit Record Reduction and Report Generation"}
+  - {id: AU-8, family: "Audit and Accountability", title: "Time Stamps"}
+  - {id: AU-9, family: "Audit and Accountability", title: "Protection of Audit Information"}
+  - {id: AU-11, family: "Audit and Accountability", title: "Audit Record Retention"}
+  - {id: AU-12, family: "Audit and Accountability", title: "Audit Record Generation"}
+  # CA — Assessment, Authorization, and Monitoring
+  - {id: CA-1, family: "Assessment, Authorization, and Monitoring", title: "Policy and Procedures"}
+  - {id: CA-2, family: "Assessment, Authorization, and Monitoring", title: "Control Assessments"}
+  - {id: CA-3, family: "Assessment, Authorization, and Monitoring", title: "Information Exchange"}
+  - {id: CA-5, family: "Assessment, Authorization, and Monitoring", title: "Plan of Action and Milestones"}
+  - {id: CA-6, family: "Assessment, Authorization, and Monitoring", title: "Authorization"}
+  - {id: CA-7, family: "Assessment, Authorization, and Monitoring", title: "Continuous Monitoring"}
+  - {id: CA-9, family: "Assessment, Authorization, and Monitoring", title: "Internal System Connections"}
+  # CM — Configuration Management
+  - {id: CM-1, family: "Configuration Management", title: "Policy and Procedures"}
+  - {id: CM-2, family: "Configuration Management", title: "Baseline Configuration"}
+  - {id: CM-3, family: "Configuration Management", title: "Configuration Change Control"}
+  - {id: CM-4, family: "Configuration Management", title: "Impact Analyses"}
+  - {id: CM-5, family: "Configuration Management", title: "Access Restrictions for Change"}
+  - {id: CM-6, family: "Configuration Management", title: "Configuration Settings"}
+  - {id: CM-7, family: "Configuration Management", title: "Least Functionality"}
+  - {id: CM-8, family: "Configuration Management", title: "System Component Inventory"}
+  - {id: CM-9, family: "Configuration Management", title: "Configuration Management Plan"}
+  - {id: CM-10, family: "Configuration Management", title: "Software Usage Restrictions"}
+  - {id: CM-11, family: "Configuration Management", title: "User-Installed Software"}
+  - {id: CM-12, family: "Configuration Management", title: "Information Location"}
+  # CP — Contingency Planning
+  - {id: CP-1, family: "Contingency Planning", title: "Policy and Procedures"}
+  - {id: CP-2, family: "Contingency Planning", title: "Contingency Plan"}
+  - {id: CP-3, family: "Contingency Planning", title: "Contingency Training"}
+  - {id: CP-4, family: "Contingency Planning", title: "Contingency Plan Testing"}
+  - {id: CP-6, family: "Contingency Planning", title: "Alternate Storage Site"}
+  - {id: CP-7, family: "Contingency Planning", title: "Alternate Processing Site"}
+  - {id: CP-8, family: "Contingency Planning", title: "Telecommunications Services"}
+  - {id: CP-9, family: "Contingency Planning", title: "System Backup"}
+  - {id: CP-10, family: "Contingency Planning", title: "System Recovery and Reconstitution"}
+  # IA — Identification and Authentication
+  - {id: IA-1, family: "Identification and Authentication", title: "Policy and Procedures"}
+  - {id: IA-2, family: "Identification and Authentication", title: "Identification and Authentication (Organizational Users)"}
+  - {id: IA-3, family: "Identification and Authentication", title: "Device Identification and Authentication"}
+  - {id: IA-4, family: "Identification and Authentication", title: "Identifier Management"}
+  - {id: IA-5, family: "Identification and Authentication", title: "Authenticator Management"}
+  - {id: IA-6, family: "Identification and Authentication", title: "Authentication Feedback"}
+  - {id: IA-7, family: "Identification and Authentication", title: "Cryptographic Module Authentication"}
+  - {id: IA-8, family: "Identification and Authentication", title: "Identification and Authentication (Non-Organizational Users)"}
+  - {id: IA-11, family: "Identification and Authentication", title: "Re-authentication"}
+  - {id: IA-12, family: "Identification and Authentication", title: "Identity Proofing"}
+  # IR — Incident Response
+  - {id: IR-1, family: "Incident Response", title: "Policy and Procedures"}
+  - {id: IR-2, family: "Incident Response", title: "Incident Response Training"}
+  - {id: IR-3, family: "Incident Response", title: "Incident Response Testing"}
+  - {id: IR-4, family: "Incident Response", title: "Incident Handling"}
+  - {id: IR-5, family: "Incident Response", title: "Incident Monitoring"}
+  - {id: IR-6, family: "Incident Response", title: "Incident Reporting"}
+  - {id: IR-7, family: "Incident Response", title: "Incident Response Assistance"}
+  - {id: IR-8, family: "Incident Response", title: "Incident Response Plan"}
+  # MA — Maintenance
+  - {id: MA-1, family: "Maintenance", title: "Policy and Procedures"}
+  - {id: MA-2, family: "Maintenance", title: "Controlled Maintenance"}
+  - {id: MA-3, family: "Maintenance", title: "Maintenance Tools"}
+  - {id: MA-4, family: "Maintenance", title: "Nonlocal Maintenance"}
+  - {id: MA-5, family: "Maintenance", title: "Maintenance Personnel"}
+  - {id: MA-6, family: "Maintenance", title: "Timely Maintenance"}
+  # MP — Media Protection
+  - {id: MP-1, family: "Media Protection", title: "Policy and Procedures"}
+  - {id: MP-2, family: "Media Protection", title: "Media Access"}
+  - {id: MP-3, family: "Media Protection", title: "Media Marking"}
+  - {id: MP-4, family: "Media Protection", title: "Media Storage"}
+  - {id: MP-5, family: "Media Protection", title: "Media Transport"}
+  - {id: MP-6, family: "Media Protection", title: "Media Sanitization"}
+  - {id: MP-7, family: "Media Protection", title: "Media Use"}
+  # PE — Physical and Environmental Protection
+  - {id: PE-1, family: "Physical and Environmental Protection", title: "Policy and Procedures"}
+  - {id: PE-2, family: "Physical and Environmental Protection", title: "Physical Access Authorizations"}
+  - {id: PE-3, family: "Physical and Environmental Protection", title: "Physical Access Control"}
+  - {id: PE-4, family: "Physical and Environmental Protection", title: "Access Control for Transmission"}
+  - {id: PE-5, family: "Physical and Environmental Protection", title: "Access Control for Output Devices"}
+  - {id: PE-6, family: "Physical and Environmental Protection", title: "Monitoring Physical Access"}
+  - {id: PE-8, family: "Physical and Environmental Protection", title: "Visitor Access Records"}
+  - {id: PE-9, family: "Physical and Environmental Protection", title: "Power Equipment and Cabling"}
+  - {id: PE-10, family: "Physical and Environmental Protection", title: "Emergency Shutoff"}
+  - {id: PE-11, family: "Physical and Environmental Protection", title: "Emergency Power"}
+  - {id: PE-12, family: "Physical and Environmental Protection", title: "Emergency Lighting"}
+  - {id: PE-13, family: "Physical and Environmental Protection", title: "Fire Protection"}
+  - {id: PE-14, family: "Physical and Environmental Protection", title: "Environmental Controls"}
+  - {id: PE-15, family: "Physical and Environmental Protection", title: "Water Damage Protection"}
+  - {id: PE-16, family: "Physical and Environmental Protection", title: "Delivery and Removal"}
+  - {id: PE-17, family: "Physical and Environmental Protection", title: "Alternate Work Site"}
+  # PL — Planning
+  - {id: PL-1, family: "Planning", title: "Policy and Procedures"}
+  - {id: PL-2, family: "Planning", title: "System Security and Privacy Plans"}
+  - {id: PL-4, family: "Planning", title: "Rules of Behavior"}
+  - {id: PL-8, family: "Planning", title: "Security and Privacy Architectures"}
+  - {id: PL-10, family: "Planning", title: "Baseline Selection"}
+  - {id: PL-11, family: "Planning", title: "Baseline Tailoring"}
+  # PS — Personnel Security
+  - {id: PS-1, family: "Personnel Security", title: "Policy and Procedures"}
+  - {id: PS-2, family: "Personnel Security", title: "Position Risk Designation"}
+  - {id: PS-3, family: "Personnel Security", title: "Personnel Screening"}
+  - {id: PS-4, family: "Personnel Security", title: "Personnel Termination"}
+  - {id: PS-5, family: "Personnel Security", title: "Personnel Transfer"}
+  - {id: PS-6, family: "Personnel Security", title: "Access Agreements"}
+  - {id: PS-7, family: "Personnel Security", title: "External Personnel Security"}
+  - {id: PS-8, family: "Personnel Security", title: "Personnel Sanctions"}
+  - {id: PS-9, family: "Personnel Security", title: "Position Descriptions"}
+  # RA — Risk Assessment
+  - {id: RA-1, family: "Risk Assessment", title: "Policy and Procedures"}
+  - {id: RA-2, family: "Risk Assessment", title: "Security Categorization"}
+  - {id: RA-3, family: "Risk Assessment", title: "Risk Assessment"}
+  - {id: RA-5, family: "Risk Assessment", title: "Vulnerability Monitoring and Scanning"}
+  - {id: RA-7, family: "Risk Assessment", title: "Risk Response"}
+  # SA — System and Services Acquisition
+  - {id: SA-1, family: "System and Services Acquisition", title: "Policy and Procedures"}
+  - {id: SA-2, family: "System and Services Acquisition", title: "Allocation of Resources"}
+  - {id: SA-3, family: "System and Services Acquisition", title: "System Development Life Cycle"}
+  - {id: SA-4, family: "System and Services Acquisition", title: "Acquisition Process"}
+  - {id: SA-5, family: "System and Services Acquisition", title: "System Documentation"}
+  - {id: SA-8, family: "System and Services Acquisition", title: "Security and Privacy Engineering Principles"}
+  - {id: SA-9, family: "System and Services Acquisition", title: "External System Services"}
+  - {id: SA-10, family: "System and Services Acquisition", title: "Developer Configuration Management"}
+  - {id: SA-11, family: "System and Services Acquisition", title: "Developer Testing and Evaluation"}
+  - {id: SA-15, family: "System and Services Acquisition", title: "Development Process, Standards, and Tools"}
+  - {id: SA-22, family: "System and Services Acquisition", title: "Unsupported System Components"}
+  # SC — System and Communications Protection
+  - {id: SC-1, family: "System and Communications Protection", title: "Policy and Procedures"}
+  - {id: SC-2, family: "System and Communications Protection", title: "Separation of System and User Functionality"}
+  - {id: SC-4, family: "System and Communications Protection", title: "Information in Shared System Resources"}
+  - {id: SC-5, family: "System and Communications Protection", title: "Denial-of-Service Protection"}
+  - {id: SC-7, family: "System and Communications Protection", title: "Boundary Protection"}
+  - {id: SC-8, family: "System and Communications Protection", title: "Transmission Confidentiality and Integrity"}
+  - {id: SC-10, family: "System and Communications Protection", title: "Network Disconnect"}
+  - {id: SC-12, family: "System and Communications Protection", title: "Cryptographic Key Establishment and Management"}
+  - {id: SC-13, family: "System and Communications Protection", title: "Cryptographic Protection"}
+  - {id: SC-15, family: "System and Communications Protection", title: "Collaborative Computing Devices and Applications"}
+  - {id: SC-17, family: "System and Communications Protection", title: "Public Key Infrastructure Certificates"}
+  - {id: SC-18, family: "System and Communications Protection", title: "Mobile Code"}
+  - {id: SC-20, family: "System and Communications Protection", title: "Secure Name/Address Resolution Service (Authoritative Source)"}
+  - {id: SC-21, family: "System and Communications Protection", title: "Secure Name/Address Resolution Service (Recursive or Caching Resolver)"}
+  - {id: SC-22, family: "System and Communications Protection", title: "Architecture and Provisioning for Name/Address Resolution Service"}
+  - {id: SC-23, family: "System and Communications Protection", title: "Session Authenticity"}
+  - {id: SC-28, family: "System and Communications Protection", title: "Protection of Information at Rest"}
+  - {id: SC-39, family: "System and Communications Protection", title: "Process Isolation"}
+  # SI — System and Information Integrity
+  - {id: SI-1, family: "System and Information Integrity", title: "Policy and Procedures"}
+  - {id: SI-2, family: "System and Information Integrity", title: "Flaw Remediation"}
+  - {id: SI-3, family: "System and Information Integrity", title: "Malicious Code Protection"}
+  - {id: SI-4, family: "System and Information Integrity", title: "System Monitoring"}
+  - {id: SI-5, family: "System and Information Integrity", title: "Security Alerts, Advisories, and Directives"}
+  - {id: SI-7, family: "System and Information Integrity", title: "Software, Firmware, and Information Integrity"}
+  - {id: SI-8, family: "System and Information Integrity", title: "Spam Protection"}
+  - {id: SI-10, family: "System and Information Integrity", title: "Information Input Validation"}
+  - {id: SI-11, family: "System and Information Integrity", title: "Error Handling"}
+  - {id: SI-12, family: "System and Information Integrity", title: "Information Management and Retention"}
+  - {id: SI-16, family: "System and Information Integrity", title: "Memory Protection"}
+  # SR — Supply Chain Risk Management
+  - {id: SR-1, family: "Supply Chain Risk Management", title: "Policy and Procedures"}
+  - {id: SR-2, family: "Supply Chain Risk Management", title: "Supply Chain Risk Management Plan"}
+  - {id: SR-3, family: "Supply Chain Risk Management", title: "Supply Chain Controls and Processes"}
+  - {id: SR-5, family: "Supply Chain Risk Management", title: "Acquisition Strategies, Tools, and Methods"}
+  - {id: SR-6, family: "Supply Chain Risk Management", title: "Supplier Assessments and Reviews"}
+  - {id: SR-8, family: "Supply Chain Risk Management", title: "Notification Agreements"}
+  - {id: SR-9, family: "Supply Chain Risk Management", title: "Tamper Resistance and Detection"}
+  - {id: SR-10, family: "Supply Chain Risk Management", title: "Inspection of Systems or Components"}
+  - {id: SR-11, family: "Supply Chain Risk Management", title: "Component Authenticity"}
+  - {id: SR-12, family: "Supply Chain Risk Management", title: "Component Disposal"}

@@ -1,0 +1,46 @@
+{
+  "subject": "acme",
+  "platform": "github",
+  "source_package": "github_audit_acme_2025-10-01",
+  "generated_at": "2025-10-01 00:00:00 UTC",
+  "summary": {"pass": 2, "fail": 2, "not_applicable": 0},
+  "coverage": ["SOC2:CC6.1", "SOC2:CC6.3", "SOC2:CC7.1", "SOC2:CC9.2"],
+  "findings": [
+    {
+      "id": "github.org.require-2fa",
+      "title": "Organization requires two-factor authentication",
+      "status": "fail",
+      "severity": "high",
+      "controls": ["SOC2:CC6.1", "ISO:A.5.17", "NIST:IA-2"],
+      "reason": "2fa not enforced at the time of this snapshot",
+      "evidence": [{"two_factor_required": "false"}]
+    },
+    {
+      "id": "github.org.default-permission",
+      "title": "Base repository permission is read or less",
+      "status": "fail",
+      "severity": "medium",
+      "controls": ["SOC2:CC6.3", "ISO:A.5.15", "NIST:AC-6"],
+      "reason": "base permission is write",
+      "evidence": [{"default_repo_permission": "write"}]
+    },
+    {
+      "id": "github.org.secret-scanning",
+      "title": "Secret scanning push protection is on for new repos",
+      "status": "pass",
+      "severity": "medium",
+      "controls": ["SOC2:CC7.1", "ISO:A.5.17", "NIST:CM-6"],
+      "reason": "1 row asserted true",
+      "evidence": []
+    },
+    {
+      "id": "github.org.vendor-review",
+      "title": "Third-party OAuth app access is restricted",
+      "status": "pass",
+      "severity": "medium",
+      "controls": ["SOC2:CC9.2"],
+      "reason": "1 row asserted true",
+      "evidence": []
+    }
+  ]
+}

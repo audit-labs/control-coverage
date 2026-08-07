@@ -1,0 +1,46 @@
+{
+  "subject": "acme",
+  "platform": "aws",
+  "source_package": "aws_audit_acme_2026-01-01",
+  "generated_at": "2026-01-01 00:00:00 UTC",
+  "summary": {"pass": 2, "fail": 1, "not_applicable": 0},
+  "coverage": ["SOC2:CC6.1", "SOC2:CC6.6", "SOC2:CC7.2", "ISO:A.8.15"],
+  "findings": [
+    {
+      "id": "aws.iam.root-mfa",
+      "title": "Root account has MFA enabled",
+      "status": "pass",
+      "severity": "high",
+      "controls": ["SOC2:CC6.1", "ISO:A.5.17", "NIST:IA-2"],
+      "reason": "1 row asserted true",
+      "evidence": []
+    },
+    {
+      "id": "aws.ec2.no-open-sg",
+      "title": "No security group open to 0.0.0.0/0 on admin ports",
+      "status": "fail",
+      "severity": "high",
+      "controls": ["SOC2:CC6.6", "ISO:A.8.20", "NIST:SC-7"],
+      "reason": "2 rows failed the check",
+      "evidence": [{"group_id": "sg-1", "port": "22"}, {"group_id": "sg-2", "port": "3389"}]
+    },
+    {
+      "id": "aws.cloudtrail.enabled",
+      "title": "CloudTrail logging is enabled in all regions",
+      "status": "pass",
+      "severity": "high",
+      "controls": ["SOC2:CC7.2", "ISO:A.8.15", "NIST:AU-2"],
+      "reason": "1 row asserted true",
+      "evidence": []
+    },
+    {
+      "id": "aws.legacy.old-code",
+      "title": "Legacy control citing an unknown code",
+      "status": "pass",
+      "severity": "low",
+      "controls": ["SOC2:CC6.99"],
+      "reason": "for orphan-code testing",
+      "evidence": []
+    }
+  ]
+}

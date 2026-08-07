@@ -1,0 +1,27 @@
+# Example scope / Statement of Applicability.
+#
+# `frameworks` selects which catalogs to evaluate. Each exclusion removes a
+# control from the in-scope denominator and MUST carry a justification. `owners`
+# is optional metadata that flows through to the SoA.
+subject: Acme Production
+frameworks: [SOC2, ISO]
+
+exclusions:
+  - control: ISO:A.7.1
+    reason: "Fully cloud-hosted; no physical premises are in scope for the ISMS."
+  - control: ISO:A.7.2
+    reason: "No physical premises — physical entry controls are not applicable."
+  - control: ISO:A.5.7
+    reason: "No formal threat-intelligence program; risk accepted by the CISO for 2026."
+
+# Drop whole categories/families at once. A SOC 2 report here covers Security and
+# Availability only, so the other three Trust Services categories are out of scope.
+exclude_families:
+  - {framework: SOC2, family: Confidentiality, reason: "Confidentiality category not in the SOC 2 audit scope."}
+  - {framework: SOC2, family: Processing Integrity, reason: "Processing Integrity category not in the SOC 2 audit scope."}
+  - {framework: SOC2, family: Privacy, reason: "Privacy category not in the SOC 2 audit scope."}
+
+owners:
+  SOC2:CC6.1: platform-team
+  SOC2:CC7.2: security-ops
+  ISO:A.5.17: identity-team

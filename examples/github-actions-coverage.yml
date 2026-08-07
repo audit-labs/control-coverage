@@ -1,0 +1,43 @@
+# Gate a pipeline on framework coverage.
+#
+# Assumes an earlier job produced audit-report JSON packages under ./reports/
+# (one per platform). This job fails the build if SOC 2 or ISO coverage drops
+# below the threshold, and publishes the coverage report + Statement of
+# Applicability as build artifacts.
+name: control-coverage
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays, 06:00 UTC
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install control-coverage
+        run: pip install git+https://github.com/audit-labs/control-coverage
+
+      # Your own step(s) should populate ./reports/*.json with audit-report output.
+
+      - name: Coverage report + SoA
+        run: |
+          control-coverage ./reports/ \
+            --scope examples/soa.yaml \
+            --format md,html,json,soa \
+            --out coverage-out/
+
+      - name: Fail if coverage regresses
+        run: control-coverage ./reports/ --scope examples/soa.yaml --fail-under 60
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage
+          path: coverage-out/

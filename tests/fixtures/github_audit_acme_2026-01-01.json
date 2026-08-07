@@ -1,0 +1,46 @@
+{
+  "subject": "acme",
+  "platform": "github",
+  "source_package": "github_audit_acme_2026-01-01",
+  "generated_at": "2026-01-01 00:00:00 UTC",
+  "summary": {"pass": 2, "fail": 1, "not_applicable": 1},
+  "coverage": ["SOC2:CC6.1", "SOC2:CC6.3", "SOC2:CC7.1", "ISO:A.5.17"],
+  "findings": [
+    {
+      "id": "github.org.require-2fa",
+      "title": "Organization requires two-factor authentication",
+      "status": "pass",
+      "severity": "high",
+      "controls": ["SOC2:CC6.1", "ISO:A.5.17", "NIST:IA-2"],
+      "reason": "1 row asserted true",
+      "evidence": []
+    },
+    {
+      "id": "github.org.default-permission",
+      "title": "Base repository permission is read or less",
+      "status": "fail",
+      "severity": "medium",
+      "controls": ["SOC2:CC6.3", "ISO:A.5.15", "NIST:AC-6"],
+      "reason": "base permission is write",
+      "evidence": [{"default_repo_permission": "write"}]
+    },
+    {
+      "id": "github.org.secret-scanning",
+      "title": "Secret scanning push protection is on for new repos",
+      "status": "pass",
+      "severity": "medium",
+      "controls": ["SOC2:CC7.1", "ISO:A.5.17", "NIST:CM-6"],
+      "reason": "1 row asserted true",
+      "evidence": []
+    },
+    {
+      "id": "github.branch.require-reviews",
+      "title": "Default branch requires pull request reviews",
+      "status": "not_applicable",
+      "severity": "high",
+      "controls": ["SOC2:CC8.1", "ISO:A.8.32", "NIST:CM-3"],
+      "reason": "table 'branch_protections' not in package",
+      "evidence": []
+    }
+  ]
+}

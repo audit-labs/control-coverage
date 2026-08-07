@@ -1,0 +1,11 @@
+# Example scope / Statement of Applicability for the test corpus.
+subject: Acme Production
+frameworks: [SOC2, ISO]
+exclusions:
+  - control: ISO:A.7.1
+    reason: "Fully cloud-hosted; no physical premises are in scope for the ISMS."
+  - control: ISO:A.5.7
+    reason: "No formal threat-intelligence program; risk accepted by the CISO for 2026."
+owners:
+  SOC2:CC6.1: platform-team
+  ISO:A.5.17: identity-team
