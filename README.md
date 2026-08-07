@@ -33,13 +33,11 @@ instead of hand-maintained.
 ## Install
 
 ```bash
-git clone https://github.com/audit-labs/control-coverage
-cd control-coverage
-python -m venv .venv && source .venv/bin/activate
-pip install -e .
+pip install control-coverage
 ```
 
-Pure standard library plus PyYAML — no other dependencies.
+Pure standard library plus PyYAML — no other dependencies. To hack on it from
+a clone instead, see [Development](#development).
 
 ## Usage
 
