@@ -169,6 +169,13 @@ audit-tools ──► CSV package ──► evidence-seal (seal + verify)
                                                     trend over time, evidence crosswalk
 ```
 
+## Stability
+
+`control-coverage` is stable as of **v1.0.0** and follows [semantic versioning](https://semver.org).
+It reads [audit-report](https://github.com/audit-labs/audit-report)'s v1 JSON
+contract; the bundled catalogs, the coverage / Statement of Applicability / JSON
+output schemas, and the `--fail-under` gate are committed within the 1.x line.
+
 ## Development
 
 ```bash
