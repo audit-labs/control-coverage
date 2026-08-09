@@ -74,7 +74,7 @@ class FrameworkCoverage:
 
     @property
     def counts(self) -> dict[str, int]:
-        counts = {s: 0 for s in STATE_ORDER}
+        counts = dict.fromkeys(STATE_ORDER, 0)
         for r in self.results:
             counts[r.state] += 1
         return counts

@@ -85,7 +85,8 @@ def test_trend_html_output(tmp_path):
     cli.main([GITHUB, AWS, "--framework", "SOC2", "--baseline", BASELINE,
               "--format", "html,json", "--out", str(tmp_path)])
     names = {p.name for p in tmp_path.iterdir()}
-    assert "trend.html" in names and "trend.json" in names
+    assert "trend.html" in names
+    assert "trend.json" in names
 
 
 def test_crosswalk_mode(capsys):

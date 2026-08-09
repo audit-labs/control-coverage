@@ -71,5 +71,6 @@ def test_html_is_self_contained():
     html = trend.render_html(_compare())
     assert html.startswith("<!doctype html>")
     assert "<style>" in html
-    assert "http://" not in html and "https://" not in html
+    assert "http://" not in html
+    assert "https://" not in html
     assert "CC9.2" in html  # a changed control shows up
