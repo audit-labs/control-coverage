@@ -47,7 +47,8 @@ def test_html_is_self_contained():
     html = reporters.render(_report(), "html")
     assert html.startswith("<!doctype html>")
     assert "<style>" in html
-    assert "http://" not in html and "https://" not in html  # no external assets
+    assert "http://" not in html  # no external assets
+    assert "https://" not in html
 
 
 def test_soa_lists_applicability_and_status():
@@ -60,5 +61,6 @@ def test_soa_lists_applicability_and_status():
 def test_unknown_format_raises():
     import pytest
 
+    report = _report()
     with pytest.raises(ValueError, match="unknown format"):
-        reporters.render(_report(), "pdf")
+        reporters.render(report, "pdf")

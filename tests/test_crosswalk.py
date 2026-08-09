@@ -63,5 +63,6 @@ def test_html_is_self_contained():
     html = crosswalk.render_html(_crosswalk(["SOC2", "ISO", "NIST"]))
     assert html.startswith("<!doctype html>")
     assert "<style>" in html
-    assert "http://" not in html and "https://" not in html
+    assert "http://" not in html
+    assert "https://" not in html
     assert "github.org.require-2fa" in html

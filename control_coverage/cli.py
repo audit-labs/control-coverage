@@ -117,11 +117,11 @@ def _now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
 
 
-def _build_report(paths, args, scp, names, subject):
+def _build_report(paths, scp, names, subject):
     """Load a corpus from *paths* and evaluate it into a CoverageReport."""
     try:
         observations = corpus.load_corpus(paths)
-    except (ValueError, FileNotFoundError, OSError) as exc:
+    except (ValueError, OSError) as exc:
         raise SystemExit(f"error: {exc}") from None
     catalogs = catalog.load_frameworks(names)
     return evaluate(catalogs, observations, scope=scp, subject=subject, generated_at=_now())
@@ -135,7 +135,7 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         observations = corpus.load_corpus(args.reports)
-    except (ValueError, FileNotFoundError, OSError) as exc:
+    except (ValueError, OSError) as exc:
         raise SystemExit(f"error: {exc}") from None
 
     scp = scope.load(args.scope) if args.scope else scope.empty()
@@ -159,6 +159,10 @@ def main(argv: list[str] | None = None) -> int:
         _print_blind_spots(report)
         return _exit_code(report, args.fail_under)
 
+    return _default_mode(args, report, subject)
+
+
+def _default_mode(args, report, subject) -> int:
     formats = [f.strip() for f in args.format.split(",") if f.strip()]
     if args.out:
         out_dir = Path(args.out)
@@ -180,7 +184,7 @@ def main(argv: list[str] | None = None) -> int:
 def _trend_mode(args, scp, names, subject, current) -> int:
     from . import trend
 
-    baseline = _build_report([args.baseline], args, scp, names, subject)
+    baseline = _build_report([args.baseline], scp, names, subject)
     tr = trend.compare(baseline, current)
 
     formats = [f.strip() for f in args.format.split(",") if f.strip()]

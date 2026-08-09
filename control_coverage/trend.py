@@ -81,7 +81,7 @@ class FrameworkTrend:
 
     @property
     def counts(self) -> dict[str, int]:
-        counts = {c: 0 for c in CATEGORY_ORDER}
+        counts = dict.fromkeys(CATEGORY_ORDER, 0)
         for d in self.deltas:
             counts[d.category] += 1
         return counts
