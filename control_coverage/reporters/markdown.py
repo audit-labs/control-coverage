@@ -9,6 +9,7 @@ from ..coverage import (
     ASSERTED,
     FAILING,
     OUT_OF_SCOPE,
+    PARTIALLY_SUPPORTED,
     STATE_ORDER,
     SUPPORTED,
     UNADDRESSED,
@@ -19,6 +20,7 @@ if TYPE_CHECKING:
 
 _STATE_LABEL = {
     SUPPORTED: "supported",
+    PARTIALLY_SUPPORTED: "partially supported",
     FAILING: "failing",
     ASSERTED: "asserted",
     UNADDRESSED: "unaddressed",
@@ -26,6 +28,7 @@ _STATE_LABEL = {
 }
 _STATE_MARK = {
     SUPPORTED: "✓",
+    PARTIALLY_SUPPORTED: "◑",
     FAILING: "✗",
     ASSERTED: "◐",
     UNADDRESSED: "○",

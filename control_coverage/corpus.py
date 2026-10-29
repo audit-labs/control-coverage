@@ -37,6 +37,16 @@ class Observation:
     title: str
     severity: str
     source: str  # report file / package name the finding came from
+    relationship: str = "full"  # how the evidence relates to the control; see RELATIONSHIPS
+    mapping: str = ""  # which mapping linked them (rule, crosswalk pack, rationale)
+
+
+# Relationship of evidence (or a source control) to a target control. Following
+# NIST IR 8477 for crosswalks: `equal` and `superset` fully cover the target;
+# `subset` and `intersects` cover part of it. Rule mappings use `full` or `partial`.
+FULL_RELATIONSHIPS = {"full", "equal", "superset"}
+PARTIAL_RELATIONSHIPS = {"partial", "subset", "intersects"}
+RELATIONSHIPS = FULL_RELATIONSHIPS | PARTIAL_RELATIONSHIPS
 
 
 def _iter_report(doc: dict, source: str):
@@ -45,7 +55,9 @@ def _iter_report(doc: dict, source: str):
         rule_id = f.get("id", "")
         title = f.get("title", "")
         severity = f.get("severity", "medium")
+        mappings = f.get("control_mappings") or {}
         for control in f.get("controls", []):
+            m = mappings.get(control) or {}
             yield Observation(
                 control=control,
                 status=status,
@@ -53,6 +65,8 @@ def _iter_report(doc: dict, source: str):
                 title=title,
                 severity=severity,
                 source=source,
+                relationship=m.get("relationship", "full"),
+                mapping=m.get("rationale", ""),
             )
 
 

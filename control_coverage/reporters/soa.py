@@ -11,7 +11,14 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from ..coverage import ASSERTED, FAILING, OUT_OF_SCOPE, SUPPORTED, UNADDRESSED
+from ..coverage import (
+    ASSERTED,
+    FAILING,
+    OUT_OF_SCOPE,
+    PARTIALLY_SUPPORTED,
+    SUPPORTED,
+    UNADDRESSED,
+)
 
 if TYPE_CHECKING:
     from ..coverage import CoverageReport
@@ -19,6 +26,7 @@ if TYPE_CHECKING:
 # How each assurance state reads as an implementation status in an SoA.
 _IMPL_STATUS = {
     SUPPORTED: "Implemented — supporting evidence collected",
+    PARTIALLY_SUPPORTED: "Partly evidenced — evidence covers part of the control",
     FAILING: "Deficient — evidence shows a non-supporting state",
     ASSERTED: "Claimed — mapped, but evidence not yet obtained",
     UNADDRESSED: "Not evidenced — no evidence collected yet",

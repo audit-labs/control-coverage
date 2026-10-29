@@ -2,7 +2,10 @@
 
 For every control in a catalog we assign one **assurance state**:
 
-* ``supported``   — in scope, at least one mapped finding passes and none fail.
+* ``supported``   — in scope, at least one fully mapped finding passes and none fail.
+* ``partially_supported`` — in scope, findings pass and none fail, but every
+                    passing one is only a partial mapping (``partial``,
+                    ``subset``, ``intersects``): part of the control is shown.
 * ``failing``     — in scope, at least one mapped finding fails.
 * ``asserted``    — in scope, findings map here but their data was absent
                     (``not_applicable``): evidence was attempted, not obtained.
@@ -20,19 +23,20 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 
 from .catalog import Catalog, Control
-from .corpus import FAIL, PASS, Observation
+from .corpus import FAIL, PARTIAL_RELATIONSHIPS, PASS, Observation
 
 SUPPORTED = "supported"
+PARTIALLY_SUPPORTED = "partially_supported"
 FAILING = "failing"
 ASSERTED = "asserted"
 UNADDRESSED = "unaddressed"
 OUT_OF_SCOPE = "out_of_scope"
 
 # Order states appear in reports and roll up in summaries (most urgent first).
-STATE_ORDER = [FAILING, UNADDRESSED, ASSERTED, SUPPORTED, OUT_OF_SCOPE]
+STATE_ORDER = [FAILING, UNADDRESSED, ASSERTED, PARTIALLY_SUPPORTED, SUPPORTED, OUT_OF_SCOPE]
 
 # States that count as the control being "addressed" by the corpus at all.
-_ADDRESSED = {SUPPORTED, FAILING, ASSERTED}
+_ADDRESSED = {SUPPORTED, PARTIALLY_SUPPORTED, FAILING, ASSERTED}
 
 
 @dataclass
@@ -57,7 +61,10 @@ def _state_for(observations: list[Observation]) -> str:
     statuses = {o.status for o in observations}
     if FAIL in statuses:
         return FAILING
-    if PASS in statuses:
+    passing = [o for o in observations if o.status == PASS]
+    if passing:
+        if all(o.relationship in PARTIAL_RELATIONSHIPS for o in passing):
+            return PARTIALLY_SUPPORTED
         return SUPPORTED
     return ASSERTED  # only not_applicable observations remain
 

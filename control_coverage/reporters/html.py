@@ -14,6 +14,7 @@ from ..coverage import (
     ASSERTED,
     FAILING,
     OUT_OF_SCOPE,
+    PARTIALLY_SUPPORTED,
     SUPPORTED,
     UNADDRESSED,
 )
@@ -23,6 +24,7 @@ if TYPE_CHECKING:
 
 _STATE_LABEL = {
     SUPPORTED: "supported",
+    PARTIALLY_SUPPORTED: "partially supported",
     FAILING: "failing",
     ASSERTED: "asserted",
     UNADDRESSED: "unaddressed",
@@ -30,6 +32,7 @@ _STATE_LABEL = {
 }
 _STATE_CLASS = {
     SUPPORTED: "supported",
+    PARTIALLY_SUPPORTED: "partial",
     FAILING: "failing",
     ASSERTED: "asserted",
     UNADDRESSED: "unaddressed",
@@ -56,6 +59,7 @@ td.num, th.num { text-align: right; }
 .badge { display: inline-block; font-weight: 700; font-size: .72rem; letter-spacing: .02em;
   padding: .12rem .5rem; border-radius: 999px; white-space: nowrap; }
 .badge.supported { background: #e5f6ea; color: #1a7f37; }
+.badge.partial { background: #eef7f0; color: #3d7a4d; }
 .badge.failing { background: #fdeaea; color: #c1272d; }
 .badge.asserted { background: #fff4e0; color: #a8620a; }
 .badge.unaddressed { background: #eceaf6; color: #5b4bb0; }
@@ -64,6 +68,7 @@ td.num, th.num { text-align: right; }
   border: 1px solid #ddd; }
 .bar > span { display: block; }
 .bar .supported { background: #35b866; }
+.bar .partial { background: #8fcf9f; }
 .bar .failing { background: #e2565b; }
 .bar .asserted { background: #eaa53c; }
 .bar .unaddressed { background: #8877d8; }
@@ -81,6 +86,7 @@ footer { margin-top: 3rem; font-size: .8rem; color: #888; border-top: 1px solid 
   th, td { border-color: #333; } th { background: #202126; }
   .headline small, .legend { color: #999; }
   .badge.supported { background: #12321d; color: #4ac36a; }
+  .badge.partial { background: #1b2c20; color: #8fcf9f; }
   .badge.failing { background: #3a1416; color: #ff6b70; }
   .badge.asserted { background: #33260f; color: #e6a94e; }
   .badge.unaddressed { background: #211d3a; color: #9d8ef0; }
@@ -92,6 +98,7 @@ footer { margin-top: 3rem; font-size: .8rem; color: #888; border-top: 1px solid 
 
 _LEGEND_COLORS = {
     SUPPORTED: "#35b866",
+    PARTIALLY_SUPPORTED: "#8fcf9f",
     FAILING: "#e2565b",
     ASSERTED: "#eaa53c",
     UNADDRESSED: "#8877d8",
@@ -107,7 +114,7 @@ def _bar(fc: FrameworkCoverage) -> str:
     counts = fc.counts
     total = sum(counts.values()) or 1
     segments = []
-    for state in [SUPPORTED, FAILING, ASSERTED, UNADDRESSED, OUT_OF_SCOPE]:
+    for state in [SUPPORTED, PARTIALLY_SUPPORTED, FAILING, ASSERTED, UNADDRESSED, OUT_OF_SCOPE]:
         n = counts[state]
         if not n:
             continue
@@ -121,7 +128,7 @@ def _bar(fc: FrameworkCoverage) -> str:
 
 def _legend() -> str:
     items = []
-    for state in [SUPPORTED, FAILING, ASSERTED, UNADDRESSED, OUT_OF_SCOPE]:
+    for state in [SUPPORTED, PARTIALLY_SUPPORTED, FAILING, ASSERTED, UNADDRESSED, OUT_OF_SCOPE]:
         items.append(
             f'<span><i style="background:{_LEGEND_COLORS[state]}"></i>{_STATE_LABEL[state]}</span>'
         )

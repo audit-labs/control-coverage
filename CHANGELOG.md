@@ -4,6 +4,15 @@ All notable changes to this project are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Coverage state `partially_supported`: passing evidence exists but only through partial mappings (`partial`, `subset`, `intersects`).
+- `Observation.relationship` and `Observation.mapping`; report JSON findings may carry `control_mappings` (`{code: {relationship, rationale}}`), as audit-report writes for typed rule mappings.
+- Catalog provenance: `license` and `imported_from` fields; `catalog.load_file`.
+- `control_coverage.importers`: OSCAL catalogs (with enhancements), OSCAL profiles over a catalog, and CISO Assistant framework libraries to catalog YAML.
+
 ## [1.0.0] - 2026-08-07
 
 First stable release. The bundled catalogs, the coverage / Statement of

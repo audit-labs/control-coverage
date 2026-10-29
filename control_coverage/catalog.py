@@ -62,6 +62,8 @@ class Catalog:
     source: str
     controls: list[Control]
     sha256: str = ""  # digest of the catalog file, so coverage ties to a mapping
+    license: str = ""  # terms the catalog content is used under
+    imported_from: str = ""  # original file or URL when converted by an importer
 
     @property
     def complete(self) -> bool:
@@ -87,7 +89,12 @@ def _resolve(name: str) -> Path:
 
 def load(name: str) -> Catalog:
     """Load a bundled catalog by framework name, short code, or alias."""
-    path = _resolve(name)
+    return load_file(_resolve(name))
+
+
+def load_file(path: str | Path) -> Catalog:
+    """Load a catalog YAML file (bundled, imported, or hand-written)."""
+    path = Path(path)
     text = path.read_text(encoding="utf-8")
     raw = yaml.safe_load(text)
     framework = raw["framework"]
@@ -108,6 +115,8 @@ def load(name: str) -> Catalog:
         source=raw.get("source", ""),
         controls=controls,
         sha256=hashlib.sha256(text.encode("utf-8")).hexdigest(),
+        license=str(raw.get("license", "")),
+        imported_from=str(raw.get("imported_from", "")),
     )
 
 
