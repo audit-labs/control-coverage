@@ -6,6 +6,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-10-29
+
 ### Added
 
 - Coverage state `partially_supported`: passing evidence exists but only through partial mappings (`partial`, `subset`, `intersects`).
@@ -36,5 +38,6 @@ under semantic versioning. Reads
 - `--fail-under N` coverage gate for CI.
 - PyPI trusted-publishing release workflow.
 
+[1.1.0]: https://github.com/audit-labs/control-coverage/releases/tag/v1.1.0
 [1.0.0]: https://github.com/audit-labs/control-coverage/releases/tag/v1.0.0
 [0.1.0]: https://github.com/audit-labs/control-coverage/releases/tag/v0.1.0
